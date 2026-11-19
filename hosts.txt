@@ -1,0 +1,7 @@
+# Lista de hosts a diagnosticar (uno por línea, # = comentario)
+google.com
+debian.org
+8.8.8.8
+1.1.1.1
+github.com
+host-inexistente.local
