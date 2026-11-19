@@ -5,8 +5,10 @@ Proyecto del curso **Sistemas Operativos** (Ingeniería de Sistemas).
 Script en Bash que ejecuta `ping`, `traceroute` y `netstat` sobre una lista de hosts y genera un **informe de conectividad** con el estado, la latencia promedio, la pérdida de paquetes y los saltos de cada host. Refuerza conceptos de redes y el manejo de arrays en Bash.
 
 ## Integrantes
-- [Nombre Apellido]
-- [Nombre Apellido]
+- Juan José Ardila
+- Juan Esteban Mur
+- Cristian Yesid González
+- Sebastián Andrés Ramos
 
 ## Entorno
 - VMware Workstation Pro 17 (4 GB RAM, 2 CPU, 25 GB de disco, red NAT)
