@@ -72,5 +72,10 @@ Revisa la sintaxis y los permisos de ejecución de cada script de `src/` y que `
 
 > Nota: con la red NAT de VMware, traceroute (UDP) no recibe respuesta de los routers intermedios y llega al límite de 15 saltos. Con `sudo traceroute -I` (ICMP) o con la red en modo puente se obtiene la ruta real.
 
+## Referencias
+- [Guía de referencia de Debian](https://www.debian.org/doc/manuals/debian-reference/index.es.html)
+- [Configurar sudo en Debian](https://wiki.debian.org/es/sudo)
+- [Proyectos básicos de manejo de terminal — Debian 13](https://github.com/andres-gutierrezri/proyectos-basicos-terminal-debian13) (repositorio del curso)
+
 ## Licencia
 Distribuido bajo la licencia MIT. Ver [LICENSE](LICENSE).
