@@ -1,14 +1,29 @@
 # Script de diagnóstico de red — Debian 13
 
-Proyecto del curso **Sistemas Operativos** (Ingeniería de Sistemas).
+Proyecto del curso **Sistemas Operativos** (Ingeniería de Sistemas, Fundación Universitaria Compensar).
 
 Script en Bash que ejecuta `ping`, `traceroute` y `netstat` sobre una lista de hosts y genera un **informe de conectividad** con el estado, la latencia promedio, la pérdida de paquetes y los saltos de cada host. Refuerza conceptos de redes y el manejo de arrays en Bash.
 
 ## Integrantes
-- Juan José Ardila
-- Juan Esteban Mur
-- Cristian Yesid González
-- Sebastián Andrés Ramos
+- Juan José Ardila Moreno
+- Juan Esteban Barrero Mur
+- Cristian Yesid González Valbuena
+- Sebastián Andrés Ramos López
+
+## Estructura del repositorio
+```
+script-diagnostico-red-debian13/
+├── src/
+│   ├── diagnostico_red.sh    # Script principal
+│   └── hosts.txt             # Lista de hosts de ejemplo
+├── tests/
+│   └── test_scripts.sh       # Pruebas de sintaxis, permisos y lista de hosts
+├── docs/
+│   ├── Proyecto_Diagnostico_Red_IEEE.docx   # Documento en formato IEEE
+│   └── Presentacion_Diagnostico_Red.pptx    # Presentación de la exposición
+├── LICENSE
+└── README.md
+```
 
 ## Entorno
 - VMware Workstation Pro 17 (4 GB RAM, 2 CPU, 25 GB de disco, red NAT)
@@ -22,20 +37,21 @@ sudo apt install iputils-ping traceroute net-tools
 
 ## Uso
 ```bash
-chmod +x diagnostico_red.sh
-./diagnostico_red.sh              # usa la lista de hosts interna
-./diagnostico_red.sh hosts.txt    # lee los hosts desde un archivo
+git clone https://github.com/jar90753-create/script-diagnostico-red-debian13.git
+cd script-diagnostico-red-debian13
+chmod +x src/diagnostico_red.sh tests/test_scripts.sh
+
+./src/diagnostico_red.sh                  # usa la lista de hosts interna
+./src/diagnostico_red.sh src/hosts.txt    # lee los hosts desde un archivo
 ```
 
 El informe se guarda en `~/informes_red/informe_AAAA-MM-DD_HH-MM-SS.txt`.
 
-## Archivos
-| Archivo | Descripción |
-|---|---|
-| `diagnostico_red.sh` | Script principal |
-| `hosts.txt` | Lista de hosts de ejemplo (uno por línea, `#` para comentarios) |
-| `Proyecto_Diagnostico_Red_IEEE.docx` | Documento del proyecto en formato IEEE |
-| `Presentacion_Diagnostico_Red.pptx` | Presentación para la exposición |
+## Pruebas
+```bash
+./tests/test_scripts.sh
+```
+Revisa la sintaxis y los permisos de ejecución de cada script de `src/` y que `hosts.txt` tenga hosts. Muestra `[OK]` o `[FALLO]` por cada comprobación.
 
 ## Cómo funciona
 1. **Arrays:** la lista de hosts se guarda en un array indexado (`HOSTS`) y los resultados en arrays asociativos (`ESTADO`, `LATENCIA`, `PERDIDA`, `SALTOS`) cuya clave es el nombre del host.
@@ -55,3 +71,6 @@ El informe se guarda en `~/informes_red/informe_AAAA-MM-DD_HH-MM-SS.txt`.
 | host-inexistente.local | INACTIVO | - | 100 % |
 
 > Nota: con la red NAT de VMware, traceroute (UDP) no recibe respuesta de los routers intermedios y llega al límite de 15 saltos. Con `sudo traceroute -I` (ICMP) o con la red en modo puente se obtiene la ruta real.
+
+## Licencia
+Distribuido bajo la licencia MIT. Ver [LICENSE](LICENSE).
